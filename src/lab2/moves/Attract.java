@@ -1,4 +1,4 @@
-package moves;
+package lab2.moves;
 
 import ru.ifmo.se.pokemon.Effect;
 import ru.ifmo.se.pokemon.Pokemon;

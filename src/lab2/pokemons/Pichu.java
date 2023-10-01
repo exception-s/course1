@@ -1,9 +1,9 @@
-package pokemons;
+package lab2.pokemons;
 
-import moves.Imprison;
-import moves.ThunderShock;
-import moves.Thunderbolt;
-import moves.Wish;
+import lab2.moves.Imprison;
+import lab2.moves.ThunderShock;
+import lab2.moves.Thunderbolt;
+import lab2.moves.Wish;
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 

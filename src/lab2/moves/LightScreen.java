@@ -1,4 +1,4 @@
-package moves;
+package lab2.moves;
 
 import ru.ifmo.se.pokemon.*;
 
@@ -7,10 +7,9 @@ public class LightScreen extends StatusMove {
         super(Type.PSYCHIC, 0, 0);
     }
 
-    private boolean flag;
     @Override
     protected void applySelfEffects(Pokemon pokemon) {
-        Effect e = new Effect().turns(3).stat(Stat.SPECIAL_DEFENSE, +2);
+        Effect e = new Effect().turns(5).stat(Stat.SPECIAL_DEFENSE, +2);
         pokemon.addEffect(e);
     }
 

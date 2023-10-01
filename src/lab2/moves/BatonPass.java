@@ -1,11 +1,11 @@
-package moves;
+package lab2.moves;
 
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.StatusMove;
 import ru.ifmo.se.pokemon.Type;
 
-public class Substitute extends StatusMove {
-    public Substitute() {
+public class BatonPass extends StatusMove {
+    public BatonPass() {
         super(Type.NORMAL, 0, 0);
     }
 
@@ -16,6 +16,6 @@ public class Substitute extends StatusMove {
 
     @Override
     protected String describe() {
-        return "Покемон применяет Substitute, куклу, поглощающую урон";
+        return "Покемон использовал атаку Baton Pass";
     }
 }

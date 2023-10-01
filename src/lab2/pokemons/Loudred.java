@@ -1,9 +1,9 @@
-package pokemons;
+package lab2.pokemons;
 
-import moves.Attract;
-import moves.LightScreen;
-import moves.Substitute;
-import moves.Tackle;
+import lab2.moves.Attract;
+import lab2.moves.LightScreen;
+import lab2.moves.Substitute;
+import lab2.moves.Tackle;
 import ru.ifmo.se.pokemon.Type;
 
 public class Loudred extends Whismur {

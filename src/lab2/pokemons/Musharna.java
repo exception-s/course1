@@ -1,9 +1,9 @@
-package pokemons;
+package lab2.pokemons;
 
-import moves.AcidArmor;
-import moves.BatonPass;
-import moves.Blizzard;
-import moves.FocusEnergy;
+import lab2.moves.AcidArmor;
+import lab2.moves.BatonPass;
+import lab2.moves.Blizzard;
+import lab2.moves.FocusEnergy;
 import ru.ifmo.se.pokemon.Type;
 
 public class Musharna extends Munna {

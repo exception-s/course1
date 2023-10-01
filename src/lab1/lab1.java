@@ -1,3 +1,5 @@
+package lab1;
+
 import java.util.Random;
 
 public class lab1 {

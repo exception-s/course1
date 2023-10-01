@@ -1,5 +1,7 @@
+package lab2;
+
 import ru.ifmo.se.pokemon.*;
-import pokemons.*;
+import lab2.pokemons.*;
 
 public class lab2 {
     public static void main(String[] args) {

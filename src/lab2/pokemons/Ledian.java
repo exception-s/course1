@@ -1,7 +1,7 @@
-package pokemons;
+package lab2.pokemons;
 
-import moves.LightScreen;
-import moves.Substitute;
+import lab2.moves.LightScreen;
+import lab2.moves.Substitute;
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 
