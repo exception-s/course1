@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: Pokemon.jar moves pokemons
+Created-By: 17.0.8 (Oracle Corporation)
+Main-Class: lab2
+
