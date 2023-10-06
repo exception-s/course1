@@ -21,6 +21,7 @@ public class Blizzard extends SpecialMove {
         }
     }
 
+
     @Override
     protected String describe() {
         if (flag) return "Удача на вашей стороне, атака Blizzard замораживает и наносит урон";
