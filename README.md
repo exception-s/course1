@@ -19,7 +19,7 @@
 
 
 
-# **EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT**
+ **EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT EXPLICIT**
 -----
 _Подключение внешнего jar-файла к себе в программу сразу на гелиосе._
 1) Напишите работающую программу у себя в IDE/иным любым способом.
