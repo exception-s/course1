@@ -25,6 +25,8 @@ public class Main {
         bimbo.addAction(new Actions("спал", "в своей корзинке"));
         System.out.println();
 
+        boy.addCondition(new Actions("тревожность", ""));
+
         PlaceAbstract location1 = new Place("Место №1");
         location1.setType(Places.Vazastan);
         System.out.println();
@@ -59,6 +61,9 @@ public class Main {
         Item train = new Item("поезд", "остановился");
         Item steamship = new Item("белый пароход", "плывёт назад");
         System.out.println();
+
+        TransportAbstract train1 = new Transport("Поезд", "наземный");
+        TransportAbstract steamship1 = new Transport("Пароход", "морской");
 
         // 1st sentence
         System.out.print("и в тот же день " + cond1.getName() + ". ");

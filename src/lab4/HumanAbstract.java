@@ -1,4 +1,4 @@
-package lab3;
+package lab4;
 
 public abstract class HumanAbstract implements BeHuman {
     private String name;
@@ -31,6 +31,5 @@ public abstract class HumanAbstract implements BeHuman {
     public boolean equals(Object obj) {
         return obj.hashCode() == this.hashCode();
     }
-
     public abstract void addCondition(Actions condition);
 }
