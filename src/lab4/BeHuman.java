@@ -3,7 +3,8 @@ package lab4;
 
 public interface BeHuman {
     String getName();
-    void addAction(Actions action);
-    String getActionsName(int i);
-    String getActionsAbility(int i);
+    void addAction(ActionsAndConditions action, String info);
+    myHashMap getActions();
+    myHashMap getConditions();
+
 }

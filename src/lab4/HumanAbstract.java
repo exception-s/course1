@@ -31,5 +31,5 @@ public abstract class HumanAbstract implements BeHuman {
     public boolean equals(Object obj) {
         return obj.hashCode() == this.hashCode();
     }
-    public abstract void addCondition(Actions condition);
+    public abstract void addCondition(ActionsAndConditions condition, String value);
 }
