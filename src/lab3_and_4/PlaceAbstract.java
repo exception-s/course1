@@ -1,4 +1,5 @@
-package lab3;
+package lab3_and_4;
+
 
 public abstract class PlaceAbstract implements InPlace {
     private String placeName;

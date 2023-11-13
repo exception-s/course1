@@ -1,4 +1,4 @@
-package lab4;
+package lab3_and_4;
 
 public class Human extends HumanAbstract {
     private myHashMap actions = new myHashMap(16);

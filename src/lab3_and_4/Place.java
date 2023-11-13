@@ -1,4 +1,5 @@
-package lab3;
+package lab3_and_4;
+
 
 public class Place extends PlaceAbstract {
     private String name;

@@ -1,4 +1,4 @@
-package lab4;
+package lab3_and_4;
 
 public abstract class HumanAbstract implements BeHuman {
     private String name;

@@ -1,10 +1,11 @@
-package lab4;
+package lab3_and_4;
 
-public class Condition {
+public class Item {
     private String name;
-    public Condition(String name){
+    public Item(String name) {
         this.name = name;
     }
+
     public String getName(){
         return name;
     }

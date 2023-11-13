@@ -1,4 +1,4 @@
-package lab3;
+package lab3_and_4;
 
 public abstract class TransportAbstract {
     private String name;
@@ -11,5 +11,6 @@ public abstract class TransportAbstract {
         return name;
     }
 
-    public abstract void addAction(Actions action);
+    public abstract void addAction(ActionsAndConditions action, String info);
+    public abstract myHashMap getActions();
 }
