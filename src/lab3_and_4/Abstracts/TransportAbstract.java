@@ -1,4 +1,6 @@
-package lab3_and_4;
+package lab3_and_4.Abstracts;
+
+
 
 public abstract class TransportAbstract {
     private String name;
@@ -6,11 +8,10 @@ public abstract class TransportAbstract {
     public TransportAbstract(String name, String type) {
         this.name = name;
         this.type = type;
+        System.out.println("Транспорт " + name + " типа " + type + " создан");
     }
     public String getName(){
         return name;
     }
 
-    public abstract void addAction(ActionsAndConditions action, String info);
-    public abstract myHashMap getActions();
 }

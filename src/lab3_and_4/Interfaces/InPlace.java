@@ -1,9 +1,10 @@
-package lab3_and_4;
+package lab3_and_4.Interfaces;
 
+
+import lab3_and_4.Enums.Places;
 
 public interface InPlace {
     String getPlaceName();
-    void setType(Places type);
     Places getPlaceType();
     String getType();
 }

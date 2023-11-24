@@ -1,101 +1,93 @@
 package lab3_and_4;
 
 
+import lab3_and_4.Abstracts.HumanAbstract;
+import lab3_and_4.Abstracts.PlaceAbstract;
+import lab3_and_4.Abstracts.TransportAbstract;
+import lab3_and_4.Classes.*;
+import lab3_and_4.Classes.Actors.*;
+import lab3_and_4.Enums.Items;
+import lab3_and_4.Enums.Places;
+
 public class Main {
     public static void main(String[] args) {
         try {
             //alive creatures
-            HumanAbstract boy = new Human("Малыш");
-            boy.addAction(ActionsAndConditions.Evening, " сидел у Карлсона на крыльце");
-            boy.addAction(ActionsAndConditions.Calm, " сидел со своим лучшим другом, и они ели свежие плюшки ");
-            boy.addCondition(ActionsAndConditions.AnxietyAndBuns, " было тревожно. ");
-            boy.addAction(ActionsAndConditions.AnxietyAndBuns, " тоже взял плюшку и откусил кусочек. ");
-            System.out.println();
-
-            HumanAbstract karlson = new Human("Карлсон");
-            karlson.addCondition(ActionsAndConditions.Hurt, "было не до смеха. Он всерьёз обиделся.");
-            karlson.addAction(ActionsAndConditions.AnxietyAndBuns, " запихал себе в рот целую плюшку и проглотил ее. ");
-            System.out.println();
-
-            HumanAbstract julius = new Human("дядя Юлиус");
-            julius.addCondition(ActionsAndConditions.Happiness, " был так счастлив, что ему хотелось, чтобы все были счастливы, и он тут же пригласил ");
-            julius.addAction(ActionsAndConditions.Journey, " из вагона вышел ");
-            System.out.println();
-
-            HumanAbstract freken = new Human("Фрекен Бок");
-            freken.addAction(ActionsAndConditions.Hurt, " посмеяться вволю.");
-            freken.addAction(ActionsAndConditions.Happiness, " сказала, что тогда свадьба будет без неё.");
-            freken.addAction(ActionsAndConditions.Calm, " была у себя дома, на Фрейгатен, чтобы ободрить Фриду. ");
-            System.out.println();
-
-            Dog bimbo = new Dog("Бимбо");
-            bimbo.addAction(ActionsAndConditions.Calm, " спал в своей корзинке. ");
-            System.out.println();
+            Boy boy = new Boy(10);
+            Karlson karlson = new Karlson();
+            Julius julius = new Julius();
+            Freken freken = new Freken();
+            Krister krister = new Krister();
+            Gunilla gunilla = new Gunilla();
+            Frida frida = new Frida();
+            Bimbo bimbo = new Bimbo();
 
             //locations
-            PlaceAbstract location1 = new Place("Место №1");
-            location1.setType(Places.Vazastan);
-            System.out.println();
-
-            PlaceAbstract location2 = new Place("Место №2");
-            location2.setType(Places.Stockholm);
-            System.out.println();
-
-            PlaceAbstract location3 = new Place("Место №3");
-            location3.setType(Places.Vastergotland);
-            System.out.println();
-
-            PlaceAbstract location4 = new Place("Место №4");
-            location4.setType(Places.Sea);
-            System.out.println();
-
-            PlaceAbstract location5 = new Place("Место №5");
-            location5.setType(Places.Freygaten);
-            System.out.println();
-
-            PlaceAbstract location6 = new Place("Место №6");
-            location6.setType(Places.Roof);
-            System.out.println();
+            PlaceAbstract vazastan = new Place(Places.Vazastan.getPlace());
+            PlaceAbstract stockholm = new Place(Places.Stockholm.getPlace());
+            PlaceAbstract vastergotland = new Place(Places.Vastergotland.getPlace());
+            PlaceAbstract sea = new Place(Places.Sea.getPlace());
+            PlaceAbstract freygaten = new Place(Places.Freygaten.getPlace());
+            PlaceAbstract roof = new Place(Places.Roof.getPlace());
+            PlaceAbstract station = new Place(Places.Station.getPlace());
 
             //"nature" conditions
-            Condition cond1 = new Condition(" настал вечер. ");
-            Condition cond2 = new Condition(", сгущались сумерки, ");
-            Condition cond3 = new Condition("зажглись огни, ");
-            Condition cond4 = new Condition("море огней. ");
-            Condition cond5 = new Condition("и это было хорошо.");
+            Condition cond1 = new Condition("В тот же день настал вечер");
+            Condition cond2 = new Condition("Cгущались сумерки");
+            Condition cond3 = new Condition("Во всём " + vazastan.getPlaceName() + " зажглись огни");
+            Condition cond4 = new Condition("Во всём " + stockholm.getPlaceName() + " море огней!");
+            Condition cond5 = new Condition("И это было хорошо.");
             Condition cond6 = new Condition("Всё это было замечательно. ");
 
             //transport
-            TransportAbstract train = new Transport("поезд", "наземный");
-            train.addAction(ActionsAndConditions.Journey, " на маленькой станции остановился ");
-            TransportAbstract steamship = new Transport("белый пароход", "морской");
-            steamship.addAction(ActionsAndConditions.Journey, "Где-то в море плывёт назад, ");
+            Train train = new Train();
+            Steamship steamship = new Steamship();
+
+            // Some items
+            Items costum = Items.Costum;
+            Items buns = Items.Buns;
+            Items basket = Items.Basket;
+
+            System.out.println("Initialization is over");
+            System.out.println();
+            System.out.println();
             System.out.println();
 
-
-            // new characters/items/etc. from Lab №4
-            Item costum = new Item("Черный бархатный костюм");
-            HumanAbstract krister = new Human("Кристер");
-            HumanAbstract gunilla = new Human("Гунилла");
-            krister.addAction(ActionsAndConditions.Mockery, "засмеют его!");
-            gunilla.addAction(ActionsAndConditions.Mockery, "засмеют его!");
 
             //text
-            System.out.println();
-            Human.HumanActions.mockery(boy, costum, krister, gunilla);
-            Human.HumanActions.hurt(karlson, freken);
-            Human.HumanActions.happiness(julius, karlson, freken);
-            Human.HumanActions.evening(cond1, boy, karlson, cond2, location1, cond3, location2, cond4, cond5);
-            Human.HumanActions.journey(location3, train, julius, location2, steamship);
-            Human.HumanActions.calm(freken, bimbo, location6, boy, cond6);
-            Human.HumanActions.anxietyAndBuns(boy, karlson);
+            boy.shiver();
+            System.out.println(costum.getItem());
+            krister.mockery(gunilla, boy);
+            karlson.hurt();
+            freken.hurt();
+            julius.happiness(karlson);
+            freken.happiness();
+            cond1.getName();
+            boy.evening(karlson);
+            cond2.getName();
+            cond3.getName();
+            cond4.getName();
+            boy.evening(karlson);
+            cond5.getName();
+            train.journey(vastergotland, station);
+            julius.journey();
+            steamship.journey(sea, stockholm);
+            freken.calm(freygaten, frida);
+            bimbo.calm(basket);
+            boy.calm(roof, buns, karlson, freken);
+            cond6.getName();
+            boy.anxiety();
+            karlson.anxietyAndBuns(buns);
+            boy.anxietyAndBuns(buns);
             System.out.println();
         }
-        catch (Human.MyNullException ex){
-            System.out.println("Null Exception: " + ex.getMessage());
+        catch (BunsException ex){
+            System.out.println("Упс, " + ex.getMessage());
+            //ex.printStackTrace();
         }
-        catch (NullPointerException ex){
-            System.out.println("NullPointer Exception: " + ex.getMessage());
+        catch (AgeException ex){
+            System.out.println(ex.getMessage());
+            //ex.printStackTrace();
         }
         finally {
             System.out.println();

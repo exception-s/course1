@@ -1,9 +1,10 @@
-package lab3_and_4;
+package lab3_and_4.Abstracts;
 
+
+import lab3_and_4.Interfaces.InPlace;
 
 public abstract class PlaceAbstract implements InPlace {
     private String placeName;
-    private String placeType;
 
     public PlaceAbstract(String placeName){
         this.placeName = placeName;

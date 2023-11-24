@@ -1,4 +1,6 @@
-package lab3_and_4;
+package lab3_and_4.Abstracts;
+
+import lab3_and_4.Interfaces.BeHuman;
 
 public abstract class HumanAbstract implements BeHuman {
     private String name;
@@ -16,7 +18,9 @@ public abstract class HumanAbstract implements BeHuman {
     public String getName() {
         return name;
     }
-
+    public void speak(String what){
+        System.out.println(getName() + ": " + what);
+    }
     @Override
     public String toString() {
         return "Человек по имени " + name;
@@ -31,5 +35,4 @@ public abstract class HumanAbstract implements BeHuman {
     public boolean equals(Object obj) {
         return obj.hashCode() == this.hashCode();
     }
-    public abstract void addCondition(ActionsAndConditions condition, String value);
 }
