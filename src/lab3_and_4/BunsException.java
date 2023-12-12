@@ -1,7 +1,15 @@
 package lab3_and_4;
 
 public class BunsException extends RuntimeException {
-    public BunsException(String info){
-        super(info);
+    private int cause;
+    private String info;
+    public BunsException(int cause, String info){
+        this.cause = cause;
+        this.info = info;
+    }
+
+    @Override
+    public String getMessage() {
+        return "взято " + cause + " " + info;
     }
 }
