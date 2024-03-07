@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:theCollection xmlns:ns2="TheCollection">
+    <Organizations>
+        <Organization>
+            <id>1</id>
+            <name>itmo</name>
+            <coordinates>
+                <x>59</x>
+                <y>43</y>
+            </coordinates>
+            <date>2024-03-07T03:04:11.562+03:00</date>
+            <annualTurnover>4382428234</annualTurnover>
+            <fullName>Rektor</fullName>
+            <employeesCount>1000</employeesCount>
+            <type>GOVERNMENT</type>
+            <postalAddress>
+                <street>kronva 49</street>
+                <zipCode>482348</zipCode>
+            </postalAddress>
+        </Organization>
+    </Organizations>
+</ns2:theCollection>

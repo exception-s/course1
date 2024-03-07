@@ -7,6 +7,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Pokemon" level="project" />
+    <orderEntry type="library" exported="" name="Pokemon" level="project" />
+    <orderEntry type="library" exported="" name="activation-1.1.1" level="project" />
+    <orderEntry type="library" exported="" name="jaxb-api-2.3.1" level="project" />
+    <orderEntry type="library" exported="" name="jaxb-core-4.0.4" level="project" />
+    <orderEntry type="library" exported="" name="jaxb-impl-4.0.4" level="project" />
+    <orderEntry type="library" exported="" name="jaxb-runtime-2.3.2" level="project" />
+    <orderEntry type="library" exported="" name="jaxb-impl-2.2" level="project" />
   </component>
 </module>
