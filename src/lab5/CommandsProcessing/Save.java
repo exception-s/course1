@@ -16,7 +16,7 @@ public class Save implements Commandable {
     @Override
     public void execute(String[] input) {
         try {
-            WriteToXML writer = new WriteToXML(collection);
+            WriteToXML writer = new WriteToXML(collection, input[1]);
             writer.write();
         } catch (IOException e) {
             System.out.println("IO error");

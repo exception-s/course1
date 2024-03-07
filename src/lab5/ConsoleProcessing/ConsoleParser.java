@@ -123,12 +123,15 @@ public class ConsoleParser {
                 }
                 else {
                     Long annualTurnover = Long.parseLong(input);
+                    if (annualTurnover <= 0) {
+                        throw new NumberFormatException();
+                    }
                     return annualTurnover;
                 }
             } catch (NullFieldException e) {
                 System.out.println("Вы не ввели годовой оборот, попробуйте снова: ");
             } catch (NumberFormatException e) {
-                System.out.println("Годовой оборот должен быть типа Long. Попробуйте ввести снова: ");
+                System.out.println("Годовой оборот должен быть типа Long и больше нуля. Попробуйте ввести снова: ");
             } catch (IOException e) {
                 System.out.println("IO ERROR");
             }
@@ -154,6 +157,8 @@ public class ConsoleParser {
                 System.out.println("Вы не ввели полное имя, попробуйте снова: ");
             } catch (IOException e) {
                 System.out.println("IO ERROR");
+            } catch (NullPointerException e) {
+                throw new ExitRequested();
             }
         }
     }

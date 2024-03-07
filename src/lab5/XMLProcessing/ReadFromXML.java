@@ -2,6 +2,7 @@ package lab5.XMLProcessing;
 
 import lab5.AppProcessing.Organization;
 import lab5.AppProcessing.TheCollection;
+import lab5.ExceptionsProcessing.NoFileAccessException;
 
 import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
@@ -28,6 +29,9 @@ public class ReadFromXML {
     public TheCollection parse() throws IOException {
         TheCollection collection = new TheCollection();
         try {
+            if (!new File((fileName)).canRead()) {
+                throw new NoFileAccessException();
+            }
             var context = JAXBContext.newInstance(TheCollection.class);
             var um = context.createUnmarshaller();
             collection = (TheCollection) um.unmarshal(

@@ -4,6 +4,12 @@
     <root id="archive" name="course1.jar">
       <element id="module-output" name="course1" />
       <element id="extracted-dir" path="$USER_HOME$/Desktop/Pokemon.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/jar sources/jaxb-api-2.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/jar sources/jaxb-impl-4.0.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/jar sources/jaxb-runtime-2.3.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/jar sources/jaxb-impl-2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/jar sources/activation-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/jar sources/jaxb-core-4.0.4.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

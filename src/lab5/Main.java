@@ -1,28 +1,39 @@
 package lab5;
 
-import lab5.AppProcessing.Coordinates;
-import lab5.AppProcessing.Organization;
+
 import lab5.AppProcessing.TheCollection;
 import lab5.CommandsProcessing.*;
 import lab5.ExceptionsProcessing.ExitRequested;
+import lab5.ExceptionsProcessing.NoFileAccessException;
 import lab5.XMLProcessing.ReadFromXML;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        if (args.length == 0) {
+            System.out.println("В качестве командной строки ничего не было передано или было передано некорректно.");
+            System.exit(0);
+        }
+        if (!new File(args[0]).exists()) {
+            System.out.println("В качестве командной строки ничего не было передано или было передано некорректно.");
+            System.exit(0);
+        }
         String fileName = args[0];
 
         // initialization
         TheCollection collection = new TheCollection();
         HistoryContainer history = new HistoryContainer();
-        ReadFromXML reader = new ReadFromXML(fileName);
-        collection = reader.parse();
-        CommandHandler handler = new CommandHandler(collection, history);
+        try {
+            ReadFromXML reader = new ReadFromXML(fileName);
+            collection = reader.parse();
+        } catch (NoFileAccessException e) {
+            System.out.println(e.getMessage());
+        }
+        CommandHandler handler = new CommandHandler(collection, history, fileName);
         handler.addCommand("add", new Add(collection));
         handler.addCommand("add_if_min", new AddIfMin(collection));
         handler.addCommand("average_of_annual_turnover", new AverageAnnualTurnover(collection));

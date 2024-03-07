@@ -3,6 +3,7 @@ package lab5.CommandsProcessing;
 import lab5.AppProcessing.TheCollection;
 import lab5.ExceptionsProcessing.*;
 
+import java.io.File;
 import java.util.HashMap;
 
 /**
@@ -12,9 +13,11 @@ public class CommandHandler {
     private final TheCollection collection;
     private final HashMap<String, Commandable> commands = new HashMap<>();
     private final HistoryContainer history;
-    public CommandHandler(TheCollection collection, HistoryContainer history) {
+    private final String file;
+    public CommandHandler(TheCollection collection, HistoryContainer history, String file) {
         this.collection = collection;
         this.history = history;
+        this.file = file;
     }
     public void addCommand(String commandName, Commandable command) {
         commands.put(commandName, command);
@@ -28,12 +31,14 @@ public class CommandHandler {
         try {
             if (command.isEmpty()) {
                 throw new NullFieldException();
-            }
-            else {
+            } else {
                 if (commands.get(command) == null) {
                     throw new NoSuchCommandException();
-                }
-                else {
+                } else {
+                    if (command.equals("save")) {
+                        line += " " + file;
+                        input = line.split("\\s+");
+                    }
                     history.add(commands.get(command));
                     commands.get(command).execute(input);
                 }
