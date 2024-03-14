@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 execute_script script1.txt
 info
 show
+=======
+info
+show
+help
+>>>>>>> origin/main

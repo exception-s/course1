@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 info
 add
 1
@@ -9,3 +10,16 @@ add
 GOVERNMENT
 1
 10000
+=======
+info
+add
+1
+1
+1
+1
+1
+1
+GOVERNMENT
+1
+10000
+>>>>>>> origin/main
