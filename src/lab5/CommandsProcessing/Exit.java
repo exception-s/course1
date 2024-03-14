@@ -3,6 +3,8 @@ package lab5.CommandsProcessing;
 import lab5.AppProcessing.TheCollection;
 import lab5.ExceptionsProcessing.ExitRequested;
 
+import java.io.File;
+
 /**
  * Класс, реализующий команду exit
  */
@@ -19,6 +21,8 @@ public class Exit implements Commandable {
     public String getName() {
         return "exit";
     }
+
+
     @Override
     public String getInfo() {
         return "завершить программу (без сохранения в файл)";

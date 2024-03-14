@@ -2,9 +2,12 @@ package lab5.CommandsProcessing;
 
 import lab5.AppProcessing.Organization;
 import lab5.AppProcessing.TheCollection;
-import lab5.ConsoleProcessing.ConsoleParser;
+import lab5.ConsoleProcessing.Parser;
+import lab5.ConsoleProcessing.ScriptReader;
 
-import java.util.Date;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
 
 /**
  * Класс, реализующий команду update
@@ -17,23 +20,24 @@ public class Update implements Commandable {
     @Override
     public void execute(String[] input) {
         int id = Integer.parseInt(input[1]);
-        ConsoleParser parser = new ConsoleParser();
-        Organization org = new Organization();
-        org.setName(parser.parseName());
-        org.setCoordinates(parser.parseCoordinates());
-        org.setDate(new Date());
-        org.setAnnualTurnover(parser.parseAnnualTurnover());
-        org.setFullName(parser.parseFullName());
-        org.setEmployeesCount(parser.parseEmployeesCount());
-        org.setType(parser.parseType());
-        org.setPostalAddress(parser.parsePostalAddress());
+        Parser parser = new Parser();
+        Organization org;
+        if (input.length > 2) {
+            ScriptReader reader = new ScriptReader();
+            input = Arrays.copyOfRange(input, 2, input.length);
+            org = reader.scriptReading(input);
+        } else {
+            org = parser.parseOrg();
+        }
         for (Organization organization : collection.getCollection()) {
             if (organization.getId() == id) {
                 collection.removeByID(id);
                 collection.add(org);
                 org.setId(id);
+                return;
             }
         }
+        System.out.println("Элемента с заданным id в коллекции нет.");
     }
     @Override
     public String getName() {

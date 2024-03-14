@@ -3,6 +3,8 @@ package lab5.CommandsProcessing;
 import lab5.AppProcessing.TheCollection;
 import lab5.ExceptionsProcessing.IncorrectArgumentsException;
 
+import java.io.File;
+
 /**
  * Класс, реализующий команду remove_by_id
  */
@@ -24,6 +26,7 @@ public class RemoveById implements Commandable {
     public String getName() {
         return "remove_by_id id";
     }
+
     @Override
     public String getInfo() {
         return "удалить элемент из коллекции по его id";

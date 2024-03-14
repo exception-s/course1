@@ -5,18 +5,36 @@ import lab5.ExceptionsProcessing.ExitRequested;
 import lab5.ExceptionsProcessing.IncorrectArgumentsException;
 import lab5.ExceptionsProcessing.NullFieldException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.io.*;
+import java.util.Date;
 
 /**
  * Класс, осуществляющий парсинг экземпляра организации из консоли
  */
-public class ConsoleParser {
+public class Parser {
     private final Validator validator = new Validator();
-    private final BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in));
+    private final BufferedReader scanner;
+    private File file;
+    public Parser() {
+        scanner = new BufferedReader(new InputStreamReader(System.in));
+    }
+    public Parser(File file) throws FileNotFoundException {
+        this.file = file;
+        scanner = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+    }
 
+    public Organization parseOrg() {
+        Organization org = new Organization();
+        org.setName(parseName());
+        org.setCoordinates(parseCoordinates());
+        org.setDate(new Date());
+        org.setAnnualTurnover(parseAnnualTurnover());
+        org.setFullName(parseFullName());
+        org.setEmployeesCount(parseEmployeesCount());
+        org.setType(parseType());
+        org.setPostalAddress(parsePostalAddress());
+        return org;
+    }
     /**
      * Парсинг имени
      * @return String name
@@ -122,7 +140,7 @@ public class ConsoleParser {
                     throw new NullFieldException();
                 }
                 else {
-                    Long annualTurnover = Long.parseLong(input);
+                    long annualTurnover = (long) Long.parseLong(input);
                     if (annualTurnover <= 0) {
                         throw new NumberFormatException();
                     }

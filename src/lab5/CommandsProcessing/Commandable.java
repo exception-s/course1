@@ -1,5 +1,7 @@
 package lab5.CommandsProcessing;
 
+import java.io.File;
+
 /**
  * Интерфейс для всех команд
  */

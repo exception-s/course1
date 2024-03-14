@@ -12,6 +12,7 @@ import java.util.Stack;
 /**
  * Класс, реализующий команду execute_script
  */
+// todo BufferedReader scripting
 public class ExecuteScript implements Commandable {
     private final TheCollection collection;
     private static final Stack<String> files = new Stack<>();
@@ -26,40 +27,26 @@ public class ExecuteScript implements Commandable {
         }
         HashMap<String, Commandable> commandList = collection.getCommandsList();
         Scanner scanner = new Scanner(System.in);
-        BufferedInputStream buf;
-        String fileName = input[1];
-        File file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\src\\lab5\\" + fileName);
-        String newFileName = new String();
+        BufferedReader buf;
+        String scriptName = input[1];
+        //File file = new File("/home/studs/s408321/lab5/" + fileName);  todo for helios
+        File file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\src\\lab5\\" + scriptName);
+        String newScriptName;
         while (!file.exists()) {
             System.out.print("Файла с таким именем нет в директории, попробуйте повторить ввод имени файла: ");
-            newFileName = scanner.nextLine();
-            file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\src\\lab5\\" + newFileName);
-            fileName = newFileName;
+            newScriptName = scanner.nextLine();
+            file = new File(newScriptName);
+            scriptName = newScriptName;
         }
-        if (files.contains(fileName)) {
-            throw new IncorrectArgumentsException("Файл с именем \"" + fileName + "\" уже обрабатывается/обработан. " +
-                    "Попробуйте использовать команду с другим именем файла.");
+        if (files.contains(scriptName)) {
+            return;
         }
-        files.push(fileName);
+        files.push(scriptName);
         try {
-            buf = new BufferedInputStream(new FileInputStream(file));
-            final String LINE_SEP = System.lineSeparator();
-            int read = buf.read();
-            char ch = (char) read;
+            buf = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
             StringBuilder sb = new StringBuilder();
-            sb.append(ch);
-            while (read > 0) {
-                ch = (char) read;
-                String line;
-                while (ch != LINE_SEP.charAt(0) && read > 0) {
-                    read = buf.read();
-                    ch = (char) read;
-                    sb.append(ch);
-                }
-                line = sb.toString();
-                if (line.charAt(0) == (char) -1) {
-                    break;
-                }
+            while (buf.ready()) {
+                String line = buf.readLine();
                 String[] fileInput = line.trim().split("\\s+");
                 String command = fileInput[0];
                 try {
@@ -71,7 +58,23 @@ public class ExecuteScript implements Commandable {
                             throw new NoSuchCommandException();
                         }
                         else {
-                            commandList.get(command).execute(fileInput);
+                            if (command.equals("add") || command.equals("add_if_min") ||
+                                            command.equals("remove_greater")) {
+                                for (int i = 0; i < 9; i++) {
+                                    sb.append(buf.readLine());
+                                    sb.append(" ");
+                                }
+                                commandList.get(command).execute(sb.toString().trim().split("\\s+"));
+                            } else if (command.equals("update")) {
+                                sb.append(fileInput[1]).append(" ");
+                                for (int i = 0; i < 9; i++) {
+                                    sb.append(buf.readLine());
+                                    sb.append(" ");
+                                }
+                                commandList.get(command).execute(sb.toString().trim().split("\\s+"));
+                            } else {
+                                commandList.get(command).execute(fileInput);
+                            }
                         }
                     }
                 } catch(NullFieldException e) {
@@ -84,17 +87,19 @@ public class ExecuteScript implements Commandable {
                 }
                 System.out.println("-".repeat(100));
                 sb.setLength(0);
-                read = buf.read();
             }
 
         } catch (IOException e) {
             System.out.println("IO error");
+        } finally {
+            files.remove(scriptName);
         }
     }
     @Override
     public String getName() {
         return "execute_script file_name";
     }
+
     @Override
     public String getInfo() {
         return "считать и исполнить скрипт из указанного файла";

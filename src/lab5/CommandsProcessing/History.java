@@ -2,6 +2,7 @@ package lab5.CommandsProcessing;
 
 import lab5.AppProcessing.TheCollection;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -32,6 +33,8 @@ public class History implements Commandable {
     public String getName() {
         return "history";
     }
+
+
     @Override
     public String getInfo() {
         return "вывести последние 6 команд (без их аргументов)";

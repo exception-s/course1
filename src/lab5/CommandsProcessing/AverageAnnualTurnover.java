@@ -4,6 +4,7 @@ import lab5.AppProcessing.Organization;
 import lab5.AppProcessing.TheCollection;
 import lab5.ExceptionsProcessing.EmptyCollectionException;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class AverageAnnualTurnover implements Commandable {
     public String getName() {
         return "average_of_annual_turnover";
     }
+
     @Override
     public String getInfo() {
         return "вывести среднее значение поля annualTurnover для всех элементов коллекции";

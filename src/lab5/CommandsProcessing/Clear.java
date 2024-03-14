@@ -2,6 +2,8 @@ package lab5.CommandsProcessing;
 
 import lab5.AppProcessing.TheCollection;
 
+import java.io.File;
+
 /**
  * Класс, реализующий команду clear
  */
@@ -19,6 +21,7 @@ public class Clear implements Commandable {
     public String getName() {
         return "clear";
     }
+
     @Override
     public String getInfo() {
         return "очистить коллекцию";

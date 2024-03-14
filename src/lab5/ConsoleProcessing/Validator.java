@@ -4,6 +4,8 @@ import lab5.AppProcessing.Address;
 import lab5.AppProcessing.Coordinates;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Objects;
 
 /**
  * Класс-валидатор, реализующий 2 интерфейса для валидации данных, введённых пользователем
@@ -20,8 +22,8 @@ public class Validator implements CheckerForOrganization, CheckerForAddress {
     }
 
     @Override
-    public boolean checkCreationDate(LocalDateTime date) {
-        return date == null;
+    public boolean checkCreationDate(String date) {
+        return Objects.equals(date, "");
     }
 
     @Override
@@ -47,11 +49,6 @@ public class Validator implements CheckerForOrganization, CheckerForAddress {
     @Override
     public boolean checkType(String type) {
         return type.isEmpty();
-    }
-
-    @Override
-    public boolean checkPostalAddress(Address postalAddress) {
-        return postalAddress == null;
     }
 
     @Override

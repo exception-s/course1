@@ -4,6 +4,7 @@ import lab5.AppProcessing.Organization;
 import lab5.AppProcessing.TheCollection;
 import lab5.ExceptionsProcessing.EmptyCollectionException;
 
+import java.io.File;
 import java.util.HashSet;
 
 /**
@@ -29,6 +30,8 @@ public class PrintUniqueFullname implements Commandable {
     public String getName() {
         return "print_unique_full_name";
     }
+
+
     @Override
     public String getInfo() {
         return "вывести уникальные значения поля fullName всех элементов в коллекции";

@@ -3,6 +3,7 @@ package lab5.AppProcessing;
 
 import lab5.CommandsProcessing.CommandHandler;
 import lab5.CommandsProcessing.Commandable;
+import lab5.CommandsProcessing.Exit;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -24,14 +25,14 @@ public class TheCollection {
     private final LinkedHashSet<Organization> collection = new LinkedHashSet<>();
     private HashMap<String, Commandable> commands;
     Date creation = new Date();
-    private int uniqueId = 0;
+    private int uniqueId = getSize() + 1;
     public LinkedHashSet<Organization> getCollection() {
         return collection;
     }
 
     /**
      * Добавление организации в коллекцию с генерацией ID
-     * @param org - экземпляр организации
+     * @param org экземпляр организации
      */
     public void add(Organization org) {
         org.setId(idGenerator());

@@ -12,7 +12,7 @@ import javax.xml.namespace.QName;
 @XmlType(propOrder = {"x", "y"})
 public class Coordinates {
     private long x;
-    private Long y; // Поле не может быть null
+    private long y; // Поле не может быть null
     public Coordinates() {}
     public Coordinates(long x, Long y) {
         this.x = x;

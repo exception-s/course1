@@ -13,7 +13,10 @@ import javax.xml.bind.annotation.XmlType;
 public class Address {
     private String street; //Длина строки не должна быть больше 125, Поле не может быть null
     private String zipCode; //Длина строки должна быть не меньше 4, Поле не может быть null
-    public Address() {}
+    public Address() {
+        this.street = "street";
+        this.zipCode = "zipCode";
+    }
     public Address(String street, String zipCode) {
         this.street = street;
         this.zipCode = zipCode;
@@ -29,6 +32,6 @@ public class Address {
     }
     @Override
     public String toString() {
-        return "street: " + street + "; zipcode: " + zipCode;
+        return "street: " + street + "; zipCode: " + zipCode;
     }
 }

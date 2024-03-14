@@ -2,6 +2,8 @@ package lab5.CommandsProcessing;
 
 import lab5.AppProcessing.TheCollection;
 
+import java.io.File;
+
 /**
  * Класс, реализующий команду info
  */
@@ -20,6 +22,8 @@ public class Info implements Commandable {
     public String getName() {
         return "info";
     }
+
+
     @Override
     public String getInfo() {
         return "вывести в стандартный поток вывода информацию " +

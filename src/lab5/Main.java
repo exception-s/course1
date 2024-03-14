@@ -3,8 +3,11 @@ package lab5;
 
 import lab5.AppProcessing.TheCollection;
 import lab5.CommandsProcessing.*;
+import lab5.ConsoleProcessing.ScriptReader;
 import lab5.ExceptionsProcessing.ExitRequested;
+import lab5.ExceptionsProcessing.IncorrectArgumentsException;
 import lab5.ExceptionsProcessing.NoFileAccessException;
+import lab5.ExceptionsProcessing.NullFieldException;
 import lab5.XMLProcessing.ReadFromXML;
 
 import java.io.File;
@@ -30,8 +33,9 @@ public class Main {
         try {
             ReadFromXML reader = new ReadFromXML(fileName);
             collection = reader.parse();
-        } catch (NoFileAccessException e) {
-            System.out.println(e.getMessage());
+        } catch (NoFileAccessException | IncorrectArgumentsException | NullPointerException e) {
+            //e.printStackTrace();
+            System.out.println("Данные во входном файле невалидны, попробуйте исправить файл.");
         }
         CommandHandler handler = new CommandHandler(collection, history, fileName);
         handler.addCommand("add", new Add(collection));
@@ -52,8 +56,7 @@ public class Main {
         handler.addCommand("update", new Update(collection));
         collection.setCommandList(handler.getCommands());
 
-
-
+        // todo suka class scriptReader, validation and remove isFile field, priberis v kode dolboeb nahui
         launchApp(handler);
     }
     public static void launchApp(CommandHandler handler) {

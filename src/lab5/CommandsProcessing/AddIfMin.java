@@ -1,9 +1,12 @@
 package lab5.CommandsProcessing;
 
-import lab5.AppProcessing.Organization;
-import lab5.AppProcessing.TheCollection;
-import lab5.ConsoleProcessing.ConsoleParser;
+import lab5.AppProcessing.*;
+import lab5.ConsoleProcessing.Parser;
+import lab5.ConsoleProcessing.ScriptReader;
+import lab5.ConsoleProcessing.Validator;
+import lab5.ExceptionsProcessing.IncorrectArgumentsException;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -16,16 +19,14 @@ public class AddIfMin implements Commandable {
     }
     @Override
     public void execute(String[] input) {
-        ConsoleParser parser = new ConsoleParser();
-        Organization org = new Organization();
-        org.setName(parser.parseName());
-        org.setCoordinates(parser.parseCoordinates());
-        org.setDate(new Date());
-        org.setAnnualTurnover(parser.parseAnnualTurnover());
-        org.setFullName(parser.parseFullName());
-        org.setEmployeesCount(parser.parseEmployeesCount());
-        org.setType(parser.parseType());
-        org.setPostalAddress(parser.parsePostalAddress());
+        Parser parser = new Parser();
+        Organization org;
+        if (input.length > 1) {
+            ScriptReader reader = new ScriptReader();
+            org = reader.scriptReading(input);
+        } else {
+            org = parser.parseOrg();
+        }
         if (collection.getSize() == 0) {
             collection.add(org);
             System.out.println("В коллекции не было элементов, поэтому новый элемент успешно добавлен.");

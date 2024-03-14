@@ -2,6 +2,7 @@ package lab5.CommandsProcessing;
 
 import lab5.AppProcessing.TheCollection;
 
+import java.io.File;
 import java.util.HashMap;
 
 /**
@@ -37,6 +38,8 @@ public class Help implements Commandable {
     public String getName() {
         return "help";
     }
+
+
     @Override
     public String getInfo() {
         return "вывести справку по доступным командам";

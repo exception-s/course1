@@ -3,6 +3,7 @@ package lab5.CommandsProcessing;
 import lab5.AppProcessing.TheCollection;
 import lab5.XMLProcessing.WriteToXML;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -26,6 +27,8 @@ public class Save implements Commandable {
     public String getName() {
         return "save";
     }
+
+
     @Override
     public String getInfo() {
         return "сохранить коллекцию в файл";
