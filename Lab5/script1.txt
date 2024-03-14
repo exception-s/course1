@@ -1,0 +1,11 @@
+info
+add
+1
+1
+1
+1
+1
+1
+GOVERNMENT
+1
+10000
