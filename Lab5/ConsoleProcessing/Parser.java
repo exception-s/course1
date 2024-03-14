@@ -18,13 +18,8 @@ import java.util.Date;
 public class Parser {
     private final Validator validator = new Validator();
     private final BufferedReader scanner;
-    private File file;
     public Parser() {
         scanner = new BufferedReader(new InputStreamReader(System.in));
-    }
-    public Parser(File file) throws FileNotFoundException {
-        this.file = file;
-        scanner = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
     }
 
     public Organization parseOrg() {

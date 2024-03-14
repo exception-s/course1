@@ -32,12 +32,12 @@ public class ExecuteScript implements Commandable {
         BufferedReader buf;
         String scriptName = input[1];
         //File file = new File("/home/studs/s408321/lab5/" + fileName);  todo for helios
-        File file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\src\\lab5\\" + scriptName);
+        File file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\Lab5\\" + scriptName);
         String newScriptName;
         while (!file.exists()) {
             System.out.print("Файла с таким именем нет в директории, попробуйте повторить ввод имени файла: ");
             newScriptName = scanner.nextLine();
-            file = new File(newScriptName);
+            file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\Lab5\\" + newScriptName);
             scriptName = newScriptName;
         }
         if (files.contains(scriptName)) {
