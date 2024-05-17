@@ -1,9 +1,14 @@
-package AppProcessing;
+package CollectionObject.Objects;
 
+
+import CollectionObject.Objects.Address;
+import CollectionObject.Objects.Coordinates;
+import CollectionObject.Objects.OrganizationType;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 
 /**
  * Функциональный интерфейс, высчитывающий расстояние от заданной точки до организаций(в моём случае начало отсчёта -
@@ -22,7 +27,7 @@ interface PythagoreanDistance<T, S> {
 @XmlRootElement(name = "Organization")
 @XmlType(propOrder = {"id", "name", "coordinates", "date", "annualTurnover", "fullName",
                                             "employeesCount", "type", "postalAddress"})
-public class Organization implements Comparable<Organization> {
+public class Organization implements Comparable<Organization>, Serializable {
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null

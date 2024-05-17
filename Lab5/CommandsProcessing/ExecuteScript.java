@@ -16,6 +16,8 @@ import java.util.Stack;
  * Класс, реализующий команду execute_script
  */
 public class ExecuteScript implements Commandable {
+    private final String heliosPath = "/home/studs/s408321/lab5/";
+    private final String localPath = "C:\\Users\\flqme\\IdeaProjects\\course1\\Lab5\\";
     private final TheCollection collection;
     private static final Stack<String> files = new Stack<>();
 
@@ -31,13 +33,14 @@ public class ExecuteScript implements Commandable {
         Scanner scanner = new Scanner(System.in);
         BufferedReader buf;
         String scriptName = input[1];
-        //File file = new File("/home/studs/s408321/lab5/" + fileName);  todo for helios
-        File file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\Lab5\\" + scriptName);
+        //File file = new File(heliosPath + scriptName);  // todo for helios
+        File file = new File(localPath + scriptName);
         String newScriptName;
         while (!file.exists()) {
             System.out.print("Файла с таким именем нет в директории, попробуйте повторить ввод имени файла: ");
             newScriptName = scanner.nextLine();
-            file = new File("C:\\Users\\flqme\\IdeaProjects\\course1\\Lab5\\" + newScriptName);
+            //file = new File(heliosPath + newScriptName);
+            file = new File(localPath + newScriptName);
             scriptName = newScriptName;
         }
         if (files.contains(scriptName)) {

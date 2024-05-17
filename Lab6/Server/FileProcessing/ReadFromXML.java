@@ -1,14 +1,17 @@
-package XMLProcessing;
+package Server.FileProcessing;
 
-import AppProcessing.Organization;
-import AppProcessing.TheCollection;
-import ConsoleProcessing.Validator;
-import ExceptionsProcessing.IncorrectArgumentsException;
-import ExceptionsProcessing.NoFileAccessException;
+import CollectionObject.Objects.Organization;
+import Server.TheCollection;
+import Client.ConsoleProcessing.Validator;
+import Server.Exceptions.IncorrectArgumentsException;
+import Server.Exceptions.NoFileAccessException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 /**

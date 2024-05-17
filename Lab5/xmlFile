@@ -5,8 +5,8 @@
             <id>1</id>
             <name>itmo</name>
             <coordinates>
-                <x>59</x>
-                <y>43</y>
+                <x>0</x>
+                <y>0</y>
             </coordinates>
             <date>2024-03-13T01:05:57.420+03:00</date>
             <annualTurnover>430403</annualTurnover>
@@ -14,8 +14,25 @@
             <employeesCount>1000</employeesCount>
             <type>GOVERNMENT</type>
             <postalAddress>
-                <street>kronva</street>
-                <zipcode>493943</zipcode>
+                <street>street</street>
+                <zipCode>zipCode</zipCode>
+            </postalAddress>
+        </Organization>
+        <Organization>
+            <id>2</id>
+            <name>Gachimuchi</name>
+            <coordinates>
+                <x>420</x>
+                <y>69</y>
+            </coordinates>
+            <date>2024-04-07T16:14:37.948+03:00</date>
+            <annualTurnover>1488</annualTurnover>
+            <fullName>SayGex Inc.</fullName>
+            <employeesCount>300</employeesCount>
+            <type>OPEN_JOINT_STOCK_COMPANY</type>
+            <postalAddress>
+                <street>улица Билли Хэрингтона</street>
+                <zipCode>1337</zipCode>
             </postalAddress>
         </Organization>
     </Organizations>

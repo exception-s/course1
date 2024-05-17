@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Lab3and4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Lab5" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Lab6" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -18,5 +19,6 @@
     <orderEntry type="library" exported="" name="jaxb-impl-4.0.4" level="project" />
     <orderEntry type="library" exported="" name="jaxb-runtime-2.3.2" level="project" />
     <orderEntry type="library" exported="" name="jaxb-impl-2.2" level="project" />
+    <orderEntry type="library" name="ch.qos.logback.classic" level="project" />
   </component>
 </module>

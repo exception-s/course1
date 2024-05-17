@@ -52,7 +52,8 @@ public class Main {
         handler.addCommand("update", new Update(collection));
         collection.setCommandList(handler.getCommands());
 
-        // todo suka class scriptReader, validation and remove isFile field, priberis v kode dolboeb nahui
+
+
         launchApp(handler);
     }
     public static void launchApp(CommandHandler handler) {

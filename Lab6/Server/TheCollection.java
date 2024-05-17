@@ -1,11 +1,13 @@
-package AppProcessing;
+package Server;
 
 
-import CommandsProcessing.Commandable;
+import CollectionObject.Objects.Organization;
+import Server.CommandsProcessing.Commandable;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,11 +18,11 @@ import java.util.LinkedHashSet;
  * Класс, управляющий всей коллекцией
  */
 @XmlRootElement(namespace = "TheCollection")
-public class TheCollection {
+public class TheCollection implements Serializable {
     @XmlElementWrapper(name = "Organizations")
 
     @XmlElement(name = "Organization")
-    private LinkedHashSet<Organization> collection = new LinkedHashSet<>();
+    private final LinkedHashSet<Organization> collection = new LinkedHashSet<>();
     private HashMap<String, Commandable> commands;
     Date creation = new Date();
     private int uniqueId = getSize() + 1;
