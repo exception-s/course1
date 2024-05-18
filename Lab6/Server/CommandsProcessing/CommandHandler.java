@@ -40,9 +40,9 @@ public class CommandHandler {
             history.add(commands.get(command));
             return commands.get(command).execute(input);
         } catch(NullFieldException e) {
-            return new Response(Status.REQUEST_ERROR, "Вы не ввели команду.", collection);
+            return new Response(Status.REQUEST_ERROR, "Вы не ввели команду.");
         } catch (IncorrectArgumentsException | EmptyCollectionException e) {
-            return new Response(Status.REQUEST_ERROR, e.getMessage(), collection);
+            return new Response(Status.REQUEST_ERROR, e.getMessage());
         }
     }
 }

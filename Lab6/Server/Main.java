@@ -2,10 +2,9 @@ package Server;
 
 import Server.CommandsProcessing.*;
 
-import java.io.IOException;
 import java.net.InetSocketAddress;
 
-public class MainServer {
+public class Main {
     public static void main(String[] args) {
         TheCollection collection = new TheCollection();
         HistoryContainer history = new HistoryContainer();
@@ -27,7 +26,8 @@ public class MainServer {
         handler.addCommand("update", new Update(collection));
         collection.setCommandList(handler.getCommands());
 
-        Server server = new Server(new InetSocketAddress(63342)); //port 8000 for time excess
-        server.launch(handler);
+        Server server = new Server(new InetSocketAddress(52829)); //localhost
+        //Server server = new Server(new InetSocketAddress(2829)); // helios
+        server.launch(handler, collection);
     }
 }

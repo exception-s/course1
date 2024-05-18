@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.stream.Collectors;
 
 
 /**
@@ -29,7 +30,7 @@ public class Show implements Commandable, Serializable {
         }
         else {
             LinkedHashSet<Organization> coll = collection.getCollection();
-            return new Response(Status.OK, coll.stream().sorted(Comparator.reverseOrder()).toString(), collection);
+            return new Response(Status.OK, String.valueOf(coll.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toCollection(LinkedHashSet::new))));
         }
     }
     @Override

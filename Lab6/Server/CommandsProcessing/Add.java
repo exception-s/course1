@@ -29,10 +29,10 @@ public class Add implements Commandable, Serializable {
         try {
             org = reader.scriptReading(input);
         } catch (IncorrectArgumentsException e) {
-            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны", collection);
+            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны");
         }
         collection.add(org);
-        return new Response(Status.OK, "Элемент успешно добавлен в коллекцию", collection);
+        return new Response(Status.OK, "Элемент успешно добавлен в коллекцию");
     }
     @Override
     public String getName() {

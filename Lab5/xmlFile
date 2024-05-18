@@ -18,22 +18,5 @@
                 <zipCode>zipCode</zipCode>
             </postalAddress>
         </Organization>
-        <Organization>
-            <id>2</id>
-            <name>Gachimuchi</name>
-            <coordinates>
-                <x>420</x>
-                <y>69</y>
-            </coordinates>
-            <date>2024-04-07T16:14:37.948+03:00</date>
-            <annualTurnover>1488</annualTurnover>
-            <fullName>SayGex Inc.</fullName>
-            <employeesCount>300</employeesCount>
-            <type>OPEN_JOINT_STOCK_COMPANY</type>
-            <postalAddress>
-                <street>улица Билли Хэрингтона</street>
-                <zipCode>1337</zipCode>
-            </postalAddress>
-        </Organization>
     </Organizations>
 </ns2:theCollection>

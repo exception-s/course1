@@ -31,7 +31,7 @@ public class RemoveGreater implements Commandable, Serializable {
         try {
             org = reader.scriptReading(input);
         } catch (IncorrectArgumentsException e) {
-            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны", collection);
+            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны");
         }
         collection.getCollection().removeIf(organization -> org.compareTo(organization) > 0);
 //        for (Organization organization : collection.getCollection()) {
@@ -39,7 +39,7 @@ public class RemoveGreater implements Commandable, Serializable {
 //                collection.removeByID(organization.getId());
 //            }
 //        }
-        return new Response(Status.OK, "Операция успешно выполнена.", collection);
+        return new Response(Status.OK, "Операция успешно выполнена.");
     }
     @Override
     public String getName() {

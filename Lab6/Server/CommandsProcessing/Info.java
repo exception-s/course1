@@ -21,7 +21,7 @@ public class Info implements Commandable, Serializable {
         sb.append("Тип: ").append(collection.getClass().getSimpleName()).append("\n").append("Дата инициализации: ").append(
                         collection.getCreationDate()).append("\n").append("Количество элементов: ").append(
                         collection.getSize()).append("\n");
-        return new Response(Status.OK, sb.toString(), collection);
+        return new Response(Status.OK, sb.toString());
     }
     @Override
     public String getName() {

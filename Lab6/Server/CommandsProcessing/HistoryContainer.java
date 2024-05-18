@@ -11,7 +11,7 @@ public class HistoryContainer implements Serializable {
     private final int MAX_SIZE = 7;
     public void add(Commandable command) {
         if (commands.size() == MAX_SIZE) {
-            commands.removeFirst();
+            commands.remove(0);
         }
         commands.add(command);
     }

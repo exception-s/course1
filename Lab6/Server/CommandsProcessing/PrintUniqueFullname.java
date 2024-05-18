@@ -21,14 +21,14 @@ public class PrintUniqueFullname implements Commandable, Serializable {
     @Override
     public Response execute(String[] input) throws EmptyCollectionException {
         if (collection.getSize() == 0) {
-            return new Response(Status.REQUEST_ERROR, "В коллекции нет элементов.", collection);
+            return new Response(Status.REQUEST_ERROR, "В коллекции нет элементов.");
         }
         HashSet<String> names = new HashSet<>();
         for (Organization org : collection.getCollection()) {
             names.add(org.getFullName());
         }
         System.out.println(names);
-        return new Response(Status.OK, names.toString(), collection);
+        return new Response(Status.OK, names.toString());
     }
     @Override
     public String getName() {

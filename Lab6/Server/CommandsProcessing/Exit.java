@@ -19,14 +19,14 @@ public class Exit implements Commandable, Serializable {
     }
     @Override
     public Response execute(String[] input) throws ExitRequested {
-        WriteToXML writer = new WriteToXML(collection, "collection");
+        WriteToXML writer = new WriteToXML(collection, "collection.xml");
         try {
             writer.write();
         } catch (IOException e) {
             System.out.println("IO error");
         }
         return new Response(Status.OK, "Коллекция была успешно сохранена в файл. \n" +
-                "Завершение работы консольного приложения...", collection);
+                "Завершение работы консольного приложения...");
     }
     @Override
     public String getName() {

@@ -36,8 +36,7 @@ public class Help implements Commandable, Serializable {
                         average_of_annual_turnover : вывести среднее значение поля annualTurnover для всех элементов коллекции
                         print_descending : вывести элементы коллекции в порядке убывания
                         print_unique_full_name : вывести уникальные значения поля fullName всех элементов в коллекции
-                        """,
-                collection);
+                        """);
     }
     @Override
     public String getName() {

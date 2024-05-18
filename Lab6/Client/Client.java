@@ -20,6 +20,7 @@ public class Client {
     private final int TIME_EXCESS = 5; // 10 minutes 10*60
     private final TreeSet<String> files = new TreeSet<>();
     private final int port;
+    private int i = 1;
     private SocketChannel channel;
     private Response response;
     private final String[] commands = {"help", "info", "show", "add", "update", "remove_by_id", "clear", "execute_script",
@@ -110,7 +111,8 @@ public class Client {
             ByteBuffer toSend = ByteBuffer.wrap(byteArr.toByteArray());
             channel.write(toSend);
         }
-        ByteBuffer toReceive = ByteBuffer.allocate(4096);
+        ByteBuffer toReceive = ByteBuffer.allocate(4096 * i);
+        i++;
         channel.read(toReceive);
         try (ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(toReceive.array()))) {
             return (Response) in.readObject();
@@ -121,16 +123,17 @@ public class Client {
         if (input.length < 2) {
             throw new IncorrectArgumentsException("Вы не ввели имя файла.");
         }
-        final String localPath = "C:\\Users\\flqme\\IdeaProjects\\course1\\Lab6\\Client\\";
+        final String path = "/home/studs/s408321/";
+        //final String path = "C:\\Users\\flqme\\IdeaProjects\\course1\\Lab6\\Client\\";
         Scanner scanner = new Scanner(System.in);
         BufferedReader buf;
         String scriptName = input[1];
-        File file = new File(localPath + scriptName);
+        File file = new File(path + scriptName);
         String newScriptName;
         while (!file.exists()) {
             System.out.print("Файла с таким именем нет в директории, попробуйте повторить ввод имени файла: ");
             newScriptName = scanner.nextLine();
-            file = new File(localPath + newScriptName);
+            file = new File(path + newScriptName);
             scriptName = newScriptName;
         }
         if (files.contains(scriptName)) {

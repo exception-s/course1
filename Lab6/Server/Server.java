@@ -15,6 +15,7 @@ import java.nio.channels.*;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.Scanner;
 
 import ch.qos.logback.classic.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,10 +25,11 @@ public class Server {
     private final Logger logger = (Logger) LoggerFactory.getLogger("Logger");
     private Request request;
     private Response response;
+    private ByteBuffer buf;
     public Server(InetSocketAddress address) {
         this.address = address;
     }
-    public void launch(CommandHandler handler) {
+    public void launch(CommandHandler handler, TheCollection collection) {
         logger.info("Сервер начал работу");
         try {
             ServerSocketChannel channel = ServerSocketChannel.open();
@@ -38,6 +40,7 @@ public class Server {
             Selector selector = Selector.open();
             logger.info("Селектор открыт");
             channel.register(selector, SelectionKey.OP_ACCEPT);
+            BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
                 selector.select();
                 logger.info("Набор готовых к работе ключей получен");
@@ -57,14 +60,20 @@ public class Server {
                             if (key.isReadable()) {
                                 SocketChannel socket = (SocketChannel) key.channel();
                                 socket.configureBlocking(false);
-                                ByteBuffer buf = ByteBuffer.allocate(1024);
+                                buf = ByteBuffer.allocate(1024);
                                 socket.read(buf);
+                                if (!buf.hasRemaining()) {
+
+                                }
                                 logger.info("Чтение запроса клиента");
                                 try (ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(buf.array()))) {
                                     request = (Request) in.readObject();
                                 } catch (ClassNotFoundException e) {
                                     System.out.println("Class is not found");
                                 }
+//                                } catch (IOException e) {
+//                                    throw new SocketException();
+//                                }
                                 logger.info("Обработка клиентского запроса");
                                 String[] input = request.getInput();
                                 if (Objects.nonNull(request.getOrg())) {
@@ -103,12 +112,20 @@ public class Server {
                         }
                     } catch (SocketException | CancelledKeyException e) {
                         logger.error("Соединение с клиентом " + key.channel().toString() + " разорвано");
-                        response = new Response(Status.CONNECTION_ERROR, Status.CONNECTION_ERROR.getMessage(), response.getCollection());
-                        WriteToXML writer = new WriteToXML(response.getCollection(), "collection.xml");
+                        response = new Response(Status.CONNECTION_ERROR, Status.CONNECTION_ERROR.getMessage());
+                        WriteToXML writer = new WriteToXML(collection, "collection.xml");
                         writer.write();
                         key.cancel();
                     }
                     selKeys.remove();
+                    if (console.ready()) {
+                        String input = console.readLine();
+                        if (input.equals("save")) {
+                            WriteToXML writer = new WriteToXML(collection, "collection.xml");
+                            writer.write();
+                            System.out.println("Collection is saved");
+                        }
+                    }
                 }
             }
         } catch (IOException e) {

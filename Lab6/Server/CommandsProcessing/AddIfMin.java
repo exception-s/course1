@@ -29,21 +29,21 @@ public class AddIfMin implements Commandable, Serializable {
         try {
             org = reader.scriptReading(input);
         } catch (IncorrectArgumentsException e) {
-            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны", collection);
+            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны");
         }
         if (collection.getSize() == 0) {
             collection.add(org);
             return new Response(Status.OK, "В коллекции не было элементов, поэтому новый элемент успешно " +
-                    "добавлен.", collection);
+                    "добавлен.");
         }
         Organization minimum = collection.getMin();
         if (minimum.compareTo(org) > 0) {
             collection.add(org);
-            return new Response(Status.OK, "Элемент успешно добавлен в коллекцию", collection);
+            return new Response(Status.OK, "Элемент успешно добавлен в коллекцию");
         }
         else {
             return new Response(Status.REQUEST_ERROR, "Элемент не удовлетворяет условию и не был добавлен " +
-                    "в коллекцию.", collection);
+                    "в коллекцию.");
         }
 
     }

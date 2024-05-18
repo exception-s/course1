@@ -20,7 +20,7 @@ public class AverageAnnualTurnover implements Commandable, Serializable {
     @Override
     public Response execute(String[] input) {
         if (collection.getSize() == 0) {
-            return new Response(Status.REQUEST_ERROR, "В коллекции нет элементов.", collection);
+            return new Response(Status.REQUEST_ERROR, "В коллекции нет элементов.");
         }
         double turnoverSum = 0;
         int count = 0;
@@ -28,7 +28,7 @@ public class AverageAnnualTurnover implements Commandable, Serializable {
             turnoverSum += org.getAnnualTurnover();
             count++;
         }
-        return new Response(Status.OK, Double.toString(turnoverSum/count), collection);
+        return new Response(Status.OK, Double.toString(turnoverSum/count));
     }
     @Override
     public String getName() {

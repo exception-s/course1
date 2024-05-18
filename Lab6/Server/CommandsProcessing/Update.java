@@ -29,17 +29,17 @@ public class Update implements Commandable, Serializable {
         try {
             org = reader.scriptReading(input);
         } catch (IncorrectArgumentsException e) {
-            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны", collection);
+            return new Response(Status.REQUEST_ERROR, "Данные объекта невалидны");
         }
         for (Organization organization : collection.getCollection()) {
             if (organization.getId() == id) {
                 collection.removeByID(id);
                 collection.add(org);
                 org.setId(id);
-                return new Response(Status.OK, "Элемент успешно обновлён.", collection);
+                return new Response(Status.OK, "Элемент успешно обновлён.");
             }
         }
-        return new Response(Status.REQUEST_ERROR, "Элемента с заданным id в коллекции нет.", collection);
+        return new Response(Status.REQUEST_ERROR, "Элемента с заданным id в коллекции нет.");
     }
     @Override
     public String getName() {

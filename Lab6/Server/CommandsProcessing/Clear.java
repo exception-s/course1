@@ -18,7 +18,7 @@ public class Clear implements Commandable, Serializable {
     public Response execute(String[] input) {
         collection.clear();
         System.out.println("Коллекция успешно очищена.");
-        return new Response(Status.OK, "Коллекция успешно очищена.", collection);
+        return new Response(Status.OK, "Коллекция успешно очищена.");
     }
     @Override
     public String getName() {

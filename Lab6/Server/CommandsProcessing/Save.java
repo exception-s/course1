@@ -22,10 +22,10 @@ public class Save implements Commandable, Serializable {
         try {
             WriteToXML writer = new WriteToXML(collection, (String) input[1]);
             writer.write();
-            return new Response(Status.OK, "Коллекция сохранена.", collection);
+            return new Response(Status.OK, "Коллекция сохранена.");
         } catch (IOException e) {
             System.out.println("IO error");
-            return new Response(Status.REQUEST_ERROR, "IO error", collection);
+            return new Response(Status.REQUEST_ERROR, "IO error");
         }
     }
     @Override
