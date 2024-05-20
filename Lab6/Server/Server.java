@@ -70,10 +70,9 @@ public class Server {
                                     request = (Request) in.readObject();
                                 } catch (ClassNotFoundException e) {
                                     System.out.println("Class is not found");
+                                } catch (IOException e) {
+                                    throw new SocketException();
                                 }
-//                                } catch (IOException e) {
-//                                    throw new SocketException();
-//                                }
                                 logger.info("Обработка клиентского запроса");
                                 String[] input = request.getInput();
                                 if (Objects.nonNull(request.getOrg())) {

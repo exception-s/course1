@@ -11,16 +11,15 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.*;
 
 public class Client {
     private final InetAddress host;
-    private final int TIME_EXCESS = 5; // 10 minutes 10*60
     private final TreeSet<String> files = new TreeSet<>();
     private final int port;
-    private int i = 1;
     private SocketChannel channel;
     private Response response;
     private final String[] commands = {"help", "info", "show", "add", "update", "remove_by_id", "clear", "execute_script",
@@ -34,15 +33,8 @@ public class Client {
         try {
             SocketAddress address = new InetSocketAddress(host, port);
             channel = SocketChannel.open();
-            Date before = new Date();
-            do {
-                channel.connect(address);
-                Date after = new Date();
-                if (after.getTime() - before.getTime() > TIME_EXCESS * 1000) {
-                    throw new TimeExcessException("Превышено время ожидания");
-                }
-            } while (!channel.isConnected());
-            // channel.connect(address);  // todo time excess
+            channel.socket().setSoTimeout(15000);
+            channel.connect(address);
             Scanner scanner = new Scanner(System.in);
             System.out.println("Добро пожаловать в консольное приложение TheCollection! Чтобы увидеть список команд," +
                     " введите help.");
@@ -96,8 +88,8 @@ public class Client {
         } catch (java.net.ConnectException e) {
             System.out.println("Ошибка соединения. Соединение не установлено или возникла проблема со " +
                     "стороны сервера, повторите попытку позже.");
-        } catch (TimeExcessException e) {
-            System.out.println(e.getMessage());
+        } catch (SocketTimeoutException e) {
+            System.out.println("Превышено время ожидания.");
         } catch (IOException e) {
             //e.printStackTrace();
             System.out.println("IO error");
@@ -111,8 +103,7 @@ public class Client {
             ByteBuffer toSend = ByteBuffer.wrap(byteArr.toByteArray());
             channel.write(toSend);
         }
-        ByteBuffer toReceive = ByteBuffer.allocate(4096 * i);
-        i++;
+        ByteBuffer toReceive = ByteBuffer.allocate(4096);
         channel.read(toReceive);
         try (ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(toReceive.array()))) {
             return (Response) in.readObject();
@@ -123,8 +114,8 @@ public class Client {
         if (input.length < 2) {
             throw new IncorrectArgumentsException("Вы не ввели имя файла.");
         }
-        final String path = "/home/studs/s408321/";
-        //final String path = "C:\\Users\\flqme\\IdeaProjects\\course1\\Lab6\\Client\\";
+        //final String path = "/home/studs/s408321/"; //for helios
+        final String path = "C:\\Users\\flqme\\IdeaProjects\\course1\\Lab6\\Client\\";
         Scanner scanner = new Scanner(System.in);
         BufferedReader buf;
         String scriptName = input[1];
