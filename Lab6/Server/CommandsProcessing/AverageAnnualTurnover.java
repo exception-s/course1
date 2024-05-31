@@ -1,11 +1,9 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Objects.Organization;
-import CollectionObject.Response;
-import CollectionObject.Status;
-import Server.Server;
+import CollectionObjects.Objects.Organization;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.TheCollection;
-import CollectionObject.Exceptions.EmptyCollectionException;
 
 import java.io.Serializable;
 

@@ -1,16 +1,13 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Response;
-import CollectionObject.Status;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.TheCollection;
 import Server.Exceptions.EmptyCollectionException;
 import Server.Exceptions.IncorrectArgumentsException;
-import Server.Exceptions.NoSuchCommandException;
 import Server.Exceptions.NullFieldException;
 
-import java.lang.reflect.Array;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Класс-обработчик команд, поступающих из консоли

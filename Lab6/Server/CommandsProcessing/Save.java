@@ -1,9 +1,8 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Response;
-import CollectionObject.Status;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.TheCollection;
-import Server.CommandsProcessing.Commandable;
 import Server.FileProcessing.WriteToXML;
 
 import java.io.IOException;

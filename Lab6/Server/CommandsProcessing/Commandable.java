@@ -1,6 +1,6 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Response;
+import CollectionObjects.Response;
 
 /**
  * Интерфейс для всех команд

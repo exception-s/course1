@@ -8,7 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Lab3and4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Lab5" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Lab6" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Lab7" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -20,5 +20,14 @@
     <orderEntry type="library" exported="" name="jaxb-runtime-2.3.2" level="project" />
     <orderEntry type="library" exported="" name="jaxb-impl-2.2" level="project" />
     <orderEntry type="library" name="ch.qos.logback.classic" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/postgresql-42.7.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

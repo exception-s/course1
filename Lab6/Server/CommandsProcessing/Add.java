@@ -1,12 +1,10 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.*;
-import CollectionObject.Exceptions.IncorrectArgumentsException;
-import CollectionObject.Objects.Organization;
+import CollectionObjects.*;
+import CollectionObjects.Exceptions.IncorrectArgumentsException;
+import CollectionObjects.Objects.Organization;
 import Server.TheCollection;
-import Server.CommandsProcessing.Commandable;
 
-import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 //import ConsoleProcessing.Parser;

@@ -1,8 +1,7 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Response;
-import CollectionObject.Status;
-import Server.Server;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.TheCollection;
 
 import java.io.Serializable;

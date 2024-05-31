@@ -1,16 +1,12 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Objects.Organization;
-import CollectionObject.Request;
-import CollectionObject.Response;
-import CollectionObject.Status;
+import CollectionObjects.Objects.Organization;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.TheCollection;
-import Server.CommandsProcessing.Commandable;
-import CollectionObject.Exceptions.EmptyCollectionException;
+import CollectionObjects.Exceptions.EmptyCollectionException;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 

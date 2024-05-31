@@ -1,10 +1,9 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Response;
-import CollectionObject.Status;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.TheCollection;
-import Server.CommandsProcessing.Commandable;
-import CollectionObject.Exceptions.IncorrectArgumentsException;
+import CollectionObjects.Exceptions.IncorrectArgumentsException;
 
 import java.io.Serializable;
 

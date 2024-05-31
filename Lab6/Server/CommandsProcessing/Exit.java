@@ -1,10 +1,10 @@
 package Server.CommandsProcessing;
 
-import CollectionObject.Response;
-import CollectionObject.Status;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.FileProcessing.WriteToXML;
 import Server.TheCollection;
-import CollectionObject.Exceptions.ExitRequested;
+import CollectionObjects.Exceptions.ExitRequested;
 
 import java.io.IOException;
 import java.io.Serializable;

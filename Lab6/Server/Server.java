@@ -1,9 +1,9 @@
 package Server;
 
-import CollectionObject.Objects.Organization;
-import CollectionObject.Request;
-import CollectionObject.Response;
-import CollectionObject.Status;
+import CollectionObjects.Objects.Organization;
+import CollectionObjects.Request;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 import Server.CommandsProcessing.CommandHandler;
 import Server.FileProcessing.WriteToXML;
 
@@ -12,10 +12,8 @@ import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
-import java.util.Scanner;
 
 import ch.qos.logback.classic.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +23,6 @@ public class Server {
     private final Logger logger = (Logger) LoggerFactory.getLogger("Logger");
     private Request request;
     private Response response;
-    private ByteBuffer buf;
     public Server(InetSocketAddress address) {
         this.address = address;
     }
@@ -60,11 +57,8 @@ public class Server {
                             if (key.isReadable()) {
                                 SocketChannel socket = (SocketChannel) key.channel();
                                 socket.configureBlocking(false);
-                                buf = ByteBuffer.allocate(1024);
+                                ByteBuffer buf = ByteBuffer.allocate(256);
                                 socket.read(buf);
-                                if (!buf.hasRemaining()) {
-
-                                }
                                 logger.info("Чтение запроса клиента");
                                 try (ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(buf.array()))) {
                                     request = (Request) in.readObject();

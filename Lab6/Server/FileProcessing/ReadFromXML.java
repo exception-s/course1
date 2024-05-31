@@ -1,6 +1,6 @@
 package Server.FileProcessing;
 
-import CollectionObject.Objects.Organization;
+import CollectionObjects.Objects.Organization;
 import Server.TheCollection;
 import Client.ConsoleProcessing.Validator;
 import Server.Exceptions.IncorrectArgumentsException;

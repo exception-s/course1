@@ -1,11 +1,11 @@
 package Client;
 
-import CollectionObject.Objects.Organization;
-import CollectionObject.Request;
+import CollectionObjects.Objects.Organization;
+import CollectionObjects.Request;
 import Client.ConsoleProcessing.Parser;
-import CollectionObject.Exceptions.*;
-import CollectionObject.Response;
-import CollectionObject.Status;
+import CollectionObjects.Exceptions.*;
+import CollectionObjects.Response;
+import CollectionObjects.Status;
 
 import java.io.*;
 import java.net.InetAddress;
@@ -77,7 +77,6 @@ public class Client {
                     } catch (NoSuchCommandException e) {
                         System.out.println("Команды {" + command + "} нет в списке команд. Чтобы вывести список, введите {help}.");
                     } catch (IncorrectArgumentsException | EmptyCollectionException | IOException | ClassNotFoundException e) {
-                        //e.printStackTrace();
                         System.out.println(e.getMessage());
                     }
                 } catch (ExitRequested | NoSuchElementException e) {
@@ -91,7 +90,6 @@ public class Client {
         } catch (SocketTimeoutException e) {
             System.out.println("Превышено время ожидания.");
         } catch (IOException e) {
-            //e.printStackTrace();
             System.out.println("IO error");
         }
     }
